@@ -1,1 +1,1 @@
-test
+Amazing script from Matt Reed, to prompt me to log my time.
