@@ -11,7 +11,8 @@ end idle
 on update_file()
 	display dialog "What have you been doing?" default answer ""
 	
-	set this_data to text returned of result & space & "[" & (year of (current date)) & (month of (current date) as integer) & (day of (current date)) & space & getTimeInHoursAndMinutes() & "]" & return
+	set this_text to text returned of result
+	set this_data to "[" & (year of (current date)) & "-" & (month of (current date) as integer) & "-" & (day of (current date)) & space & getTimeInHoursAndMinutes() & "]" & space & this_text & return
 	set this_file to (((path to home folder) as string) & "Dropbox:simon-log.txt")
 	
 	my write_to_file(this_data, this_file, true)
@@ -45,9 +46,5 @@ on getTimeInHoursAndMinutes()
 	set theMin to characters 1 thru (Pos - 1) of timeStr as string
 	set timeStr to characters (Pos + 1) through end of timeStr as string
 	
-	--Get "AM or PM"
-	set Pos to offset of " " in timeStr
-	set theSfx to characters (Pos + 1) through end of timeStr as string
-	
-	return (theHour & ":" & theMin & " " & theSfx) as string
+	return (theHour & ":" & theMin) as string
 end getTimeInHoursAndMinutes
