@@ -12,7 +12,7 @@ on update_file()
 	display dialog "What have you been doing?" default answer ""
 	
 	set this_data to text returned of result & space & "[" & (year of (current date)) & (month of (current date) as integer) & (day of (current date)) & space & getTimeInHoursAndMinutes() & "]" & return
-	set this_file to (((path to home folder) as string) & "Dropbox:simon-log.txt")
+	set this_file to (((path to home folder) as string) & "Dropbox:my-log.txt")
 	
 	my write_to_file(this_data, this_file, true)
 end update_file
